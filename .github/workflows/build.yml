@@ -24,17 +24,11 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2
 
-    - name: Restore packages (v4.8)
+    - name: Restore NuGet packages
       run: msbuild USBCopyer\USBCopyer.csproj -t:restore -p:Configuration=Release -p:Platform="Any CPU"
 
     - name: Build Release
       run: msbuild USBCopyer.sln -t:build -p:Configuration=Release -p:Platform="Any CPU"
-
-    - name: Restore packages (v3.5)
-      run: msbuild USBCopyer\USBCopyer.csproj -t:restore -p:Configuration=Release.Net3.5 -p:Platform="Any CPU"
-
-    - name: Build Release.Net3.5
-      run: msbuild USBCopyer.sln -t:build -p:Configuration=ReNet3.5 -p:Platform="Any CPU"
 
     - name: Rename assets with version
       shell: pwsh

@@ -11,7 +11,7 @@
 5. **程序集元数据中性化**：AssemblyInfo 的公司/版权/描述不再包含原工具名与原作者信息
 6. **注册表自启动项中性化**：`HKCU\...\Run` 下的值名由 `USBCopyer` 改为 `StorageService`
 7. **移除外部链接**：设置界面与捐赠窗口中指向原作者域名/项目页的跳转已移除
-8. **CI 编译发布**：GitHub Actions 自动编译 Release / .NET 3.5 两个版本，手动触发发布 GitHub Release（资产名带版本号）
+8. **CI 编译发布**：GitHub Actions 自动编译 Release 标准版（.NET Framework 4.8，覆盖 Win7+），手动触发发布 GitHub Release（资产名带版本号）
 
 原版功能（复制引擎、黑白名单、自定义分类规则、回调、Git 版本控制等）全部保留。
 
