@@ -2,11 +2,6 @@ name: build
 
 on:
   workflow_dispatch:
-    inputs:
-      publish:
-        description: '发布 GitHub Release（勾选后创建草稿发布）'
-        type: boolean
-        default: false
   push:
     branches: [ master ]
   pull_request:
@@ -51,7 +46,8 @@ jobs:
 
   release:
     needs: build
-    if: github.event_name == 'workflow_dispatch' && github.event.inputs.publish == 'true'
+    # 全自动发布：任何成功的编译（手动触发）即自动发布正式 Release
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:
@@ -77,4 +73,3 @@ jobs:
           使用：StorageService.exe /gui 打开设置界面；默认（无参数）隐藏运行。
           版本 v${{ env.VERSION }}（跟随上游 V5.11，本 fork 定制第 1 版）
         files: dist/*
-        draft: true
