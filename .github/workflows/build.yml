@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       publish:
-        description: '发布 GitHub Release（勾选后创建 v${{ env.VERSION }} 草稿发布）'
+        description: '发布 GitHub Release（勾选后创建草稿发布）'
         type: boolean
         default: false
   push:
