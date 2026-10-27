@@ -24,6 +24,11 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2
 
+    - name: Clean Release directory
+      shell: pwsh
+      run: |
+        if (Test-Path Release) { Remove-Item -Recurse -Force Release }
+
     - name: Restore NuGet packages
       run: msbuild USBCopyer\USBCopyer.csproj -t:restore -p:Configuration=Release -p:Platform="Any CPU"
 
