@@ -49,6 +49,8 @@ jobs:
     # 全自动发布：任何成功的编译（手动触发）即自动发布正式 Release
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'push'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
     - uses: actions/download-artifact@v4
