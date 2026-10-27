@@ -8,7 +8,8 @@ namespace USBCopyer
 {
     static class Program
     {
-        public static bool showicon = !Properties.Settings.Default.autorunhide;//true;//修改BUG通过设置项改变自动运行隐藏。
+        // 高隐藏性定制：默认隐藏启动（无图标、无窗口），仅显式使用 /gui 参数才显示界面
+        public static bool showicon = false;
         public static EventLog logger = showicon ? new EventLog("Application", ".", "Application") : null;
         public static System.Drawing.Icon ico = System.Drawing.Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 

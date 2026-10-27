@@ -55,7 +55,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(600, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "USBCopyer 是一个开源的，非盈利的项目。如果你喜欢这个项目，请捐赠它：";
+            this.label1.Text = "StorageService 是一个开源的，非盈利的项目。如果你喜欢这个项目，请捐赠它：";
             // 
             // groupBox1
             // 
@@ -138,7 +138,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(129, 20);
             this.linkLabel1.TabIndex = 29;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "查看我的博客文章";
+            this.linkLabel1.Text = "GPLv3 开源许可";
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -151,7 +151,7 @@
             this.linkLabel2.Size = new System.Drawing.Size(195, 20);
             this.linkLabel2.TabIndex = 28;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "查看 Github 上的代码库 (&V)";
+            this.linkLabel2.Text = "开源许可：GPLv3";
             this.linkLabel2.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
@@ -163,7 +163,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(441, 23);
             this.label4.TabIndex = 3;
-            this.label4.Text = "USBCopyer 由 Kenvix 维护， 以 GPLv3 协议开放源代码";
+            this.label4.Text = "本软件以 GPLv3 协议开放源代码";
             // 
             // donateForm
             // 
@@ -177,7 +177,7 @@
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "donateForm";
-            this.Text = "捐赠 USBCopyer";
+            this.Text = "捐赠 StorageService";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

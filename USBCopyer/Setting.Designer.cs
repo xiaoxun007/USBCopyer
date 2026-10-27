@@ -230,7 +230,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(491, 12);
             this.label4.TabIndex = 11;
-            this.label4.Text = "留空表示存放到当前程序运行目录下面的 USBCopyerData 文件夹。文件夹内使用设备ID分类";
+            this.label4.Text = "留空表示存放到当前程序运行目录下面的 StorageServiceData 文件夹。文件夹内使用设备ID分类";
             // 
             // hidemsg
             // 
@@ -448,7 +448,7 @@
             this.linkLabel4.Size = new System.Drawing.Size(59, 12);
             this.linkLabel4.TabIndex = 21;
             this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "USBCopyer";
+            this.linkLabel4.Text = "StorageService";
             this.linkLabel4.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
@@ -615,7 +615,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(227, 60);
             this.label16.TabIndex = 23;
-            this.label16.Text = "以隐藏模式启动将看不到图标\r\n\r\n若要停止或调整USBCopyer的设置，请在任\r\n\r\n务管理器中结束USBCopyer的进程";
+            this.label16.Text = "以隐藏模式启动将看不到图标\r\n\r\n若要停止或调整StorageService的设置，请在任\r\n\r\n务管理器中结束StorageService的进程";
             // 
             // pictureBox1
             // 
@@ -700,7 +700,7 @@
             this.linkLabel6.Size = new System.Drawing.Size(151, 16);
             this.linkLabel6.TabIndex = 32;
             this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "捐赠 USBCopyer (&D)";
+            this.linkLabel6.Text = "捐赠 StorageService (&D)";
             this.linkLabel6.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked_1);
             // 
@@ -945,7 +945,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(500, 602);
             this.Name = "Setting";
-            this.Text = "USBCopyer 设置";
+            this.Text = "StorageService 设置";
             this.Load += new System.EventHandler(this.Setting_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

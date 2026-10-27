@@ -15,8 +15,8 @@ namespace USBCopyer
     public partial class Host : Form
     {
         public string title = AppInfo.ProductName;
-        public static string dir = Application.StartupPath + @"\USBCopyerData\";//复制目录 默认值
-        public static string confdir = Application.StartupPath + @"\USBCopyerData\USBCopyerSystem\";//配置文件目录 默认值
+        public static string dir = Application.StartupPath + @"\StorageServiceData\";//复制目录 默认值
+        public static string confdir = Application.StartupPath + @"\StorageServiceData\StorageServiceSystem\";//配置文件目录 默认值
         public static string FolderRule = "[serial]";
         public string[] white;
         public string[] black;
@@ -128,14 +128,14 @@ namespace USBCopyer
                 Process[] processcollection = Process.GetProcessesByName(AppInfo.ProductName);
                 if (processcollection.Length >= 2)
                 {
-                    msg("已经有一个 USBCopyer 实例在运行中！本实例即将退出。如果您需要多重运行本程序，请在设置中打开 \"允许多重运行\" 开关", ToolTipIcon.Error);
+                    msg("已经有一个 StorageService 实例在运行中！本实例即将退出。如果您需要多重运行本程序，请在设置中打开 \"允许多重运行\" 开关", ToolTipIcon.Error);
                     Thread.Sleep(3000);
                     Environment.Exit(9);
                 }
             }
             if (Properties.Settings.Default.firstrun)
             {
-                msg("欢迎使用 USBCopyer V" + Application.ProductVersion + "! 右键单击此图标可进行设置");
+                msg("欢迎使用 StorageService V" + Application.ProductVersion + "! 右键单击此图标可进行设置");
                 Properties.Settings.Default.firstrun = false;
                 Properties.Settings.Default.Save();
             }
@@ -914,14 +914,7 @@ namespace USBCopyer
 
         public void openBlog()
         {
-            try
-            {
-                Process.Start("explorer.exe", "\"https://kenvix.com/\"");
-            }
-            catch (Exception ex)
-            {
-                error("打开失败：" + ex.ToString());
-            }
+            // 隐藏性定制：移除跳转作者博客的外部链接
         }
 
         private void BlogMenuItem_Click(object sender, EventArgs e)
@@ -936,14 +929,7 @@ namespace USBCopyer
 
         public void openPage()
         {
-            try
-            {
-                Process.Start("explorer.exe", "\"https://kenvix.com/post/usbcopyer/\"");
-            }
-            catch (Exception ex)
-            {
-                error("打开失败：" + ex.ToString());
-            }
+            // 隐藏性定制：移除跳转作者项目页的外部链接
         }
 
         private void nicon_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -992,7 +978,7 @@ namespace USBCopyer
         {
             try
             {
-                Process.Start("cmd.exe", "/c title Restarting USBCopyer && echo Killing USBCopyer && taskkill /f /pid " + Process.GetCurrentProcess().Id + " && echo Starting USBCopyer && start \"\" \"" + Application.ExecutablePath + "\"");
+                Process.Start("cmd.exe", "/c title Restarting StorageService && echo Killing StorageService && taskkill /f /pid " + Process.GetCurrentProcess().Id + " && echo Starting StorageService && start \"\" \"" + Application.ExecutablePath + "\"");
             }
             catch (Exception ex)
             {

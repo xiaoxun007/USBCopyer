@@ -6,13 +6,14 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
+// 隐藏性定制：程序集元数据已中性化，避免暴露工具名称与原作者信息。
 [assembly: AssemblyTitle("")]
-[assembly: AssemblyDescription("USBCopyer File Copy Tool")]
+[assembly: AssemblyDescription("Windows Storage Service")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Kenvix <i@kenvix.com>")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("Copyright © 2018 Kenvix")]
-[assembly: AssemblyTrademark("By: Kenvix")]
+[assembly: AssemblyCopyright("")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 //将 ComVisible 设置为 false 将使此程序集中的类型
@@ -39,5 +40,7 @@ using System.Runtime.InteropServices;
 
 public class AppInfo
 {
-    public const string ProductName = "USBCopyer";
+    // 程序对外名称：进程名 / 窗口标题 / 托盘提示 均跟随此常量
+    // 隐藏性定制：由 USBCopyer 改为 StorageService
+    public const string ProductName = "StorageService";
 }

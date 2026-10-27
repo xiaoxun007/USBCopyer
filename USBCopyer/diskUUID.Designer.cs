@@ -164,7 +164,7 @@
             this.linkLabel4.Size = new System.Drawing.Size(59, 12);
             this.linkLabel4.TabIndex = 25;
             this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "USBCopyer";
+            this.linkLabel4.Text = "StorageService";
             this.linkLabel4.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             // 
             // label6

@@ -22,7 +22,7 @@ namespace USBCopyer
         {
                 try
                 {
-                    Process.Start("explorer.exe", "\"https://github.com/kenvix/USBCopyer\"");
+                    // 隐藏性定制：移除跳转作者代码库的外部链接
                 }
                 catch (Exception ex)
                 {
@@ -34,7 +34,7 @@ namespace USBCopyer
         {
             try
             {
-                Process.Start("explorer.exe", "\"https://kenvix.com/post/usbcopyer/\"");
+                // 隐藏性定制：移除跳转作者博客的外部链接
             }
             catch (Exception ex)
             {

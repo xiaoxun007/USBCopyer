@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>USBCopyer</RootNamespace>
-    <AssemblyName>USBCopyer</AssemblyName>
+    <AssemblyName>StorageService</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -208,6 +208,10 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <!-- 隐藏性定制：CI 无 .NET Framework 3.5 目标包时编译 Release.Net3.5 配置所需的引用程序集 -->
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>echo =========== $(SolutionName) Builder =========== 
@@ -217,7 +221,7 @@ echo Build Target: $(TargetName) $(PlatformName)</PreBuildEvent>
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(SolutionDir)Release"
 echo Copying Files to Release Path
-copy /Y "$(TargetPath)" "$(SolutionDir)Release\$(ProjectName).$(ConfigurationName)$(TargetExt)"
+copy /Y "$(TargetPath)" "$(SolutionDir)Release\$(AssemblyName).$(ConfigurationName)$(TargetExt)"
 echo.
 echo ================================== 
 exit 0</PostBuildEvent>

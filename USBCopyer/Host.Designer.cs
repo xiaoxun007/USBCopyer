@@ -58,9 +58,9 @@ namespace USBCopyer
             // 
             this.nicon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.nicon.BalloonTipText = "已启动";
-            this.nicon.BalloonTipTitle = "USBCopyer";
+            this.nicon.BalloonTipTitle = "StorageService";
             this.nicon.ContextMenuStrip = this.niconMenu;
-            this.nicon.Text = "USBCopyer";
+            this.nicon.Text = "StorageService";
             this.nicon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.nicon_MouseDoubleClick);
             // 
             // niconMenu
@@ -93,7 +93,7 @@ namespace USBCopyer
             // 
             this.nameMenuItem.Name = "nameMenuItem";
             this.nameMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.nameMenuItem.Text = "USBCopyer";
+            this.nameMenuItem.Text = "StorageService";
             this.nameMenuItem.Click += new System.EventHandler(this.nameMenuItem_Click);
             // 
             // BlogMenuItem
@@ -195,7 +195,7 @@ namespace USBCopyer
             // 
             // restartUSBCopyerToolStripMenuItem
             // 
-            this.restartUSBCopyerToolStripMenuItem.Name = "restartUSBCopyerToolStripMenuItem";
+            this.restartUSBCopyerToolStripMenuItem.Name = "restartStorageServiceToolStripMenuItem";
             this.restartUSBCopyerToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
             this.restartUSBCopyerToolStripMenuItem.Text = "快速重启 (&R)";
             this.restartUSBCopyerToolStripMenuItem.Click += new System.EventHandler(this.restartUSBCopyerToolStripMenuItem_Click);
