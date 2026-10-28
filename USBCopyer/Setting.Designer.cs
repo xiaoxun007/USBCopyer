@@ -462,7 +462,7 @@
             this.linkLabel5.Size = new System.Drawing.Size(53, 12);
             this.linkLabel5.TabIndex = 22;
             this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "检查更新";
+            this.linkLabel5.Text = "";
             this.linkLabel5.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
@@ -943,8 +943,10 @@
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(500, 602);
+            this.MinimumSize = new System.Drawing.Size(786, 631);
+            this.MaximumSize = new System.Drawing.Size(786, 631);
             this.Name = "Setting";
             this.Text = "StorageService 设置";
             this.Load += new System.EventHandler(this.Setting_Load);

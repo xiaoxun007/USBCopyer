@@ -176,7 +176,7 @@ namespace USBCopyer
 
         private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/xiaoxun007/USBCopyer/releases");
+            // 隐藏性定制：移除检查更新入口
         }
 
         private void linkLabel6_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

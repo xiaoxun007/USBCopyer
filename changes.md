@@ -26,6 +26,8 @@
 - **程序集友好名称**：AssemblyTitle/Description/Product = `StorageService`（任务管理器"进程"页显示干净名称，无 .exe、无版本号、无空格）
 - **界面去作者化**：设置窗口底部"作者：Kenvix" → `StorageService`；"捐赠 StorageService""开源信息"按钮与捐赠图片入口移除（点击行为清空）；托盘菜单"作者：Kenvix"项移除
 - **检查更新指向本 fork**：点击打开 `xiaoxun007/USBCopyer` Releases 页（不指向上游）
+- **窗口固定大小**：设置窗口改为 `FixedSingle`（786×631，禁止拖放缩放），修复缩放后界面布局错乱
+- **移除"检查更新"按钮**（无需更新功能）
 - 版本代码同步 5.11.3.0
 
 ## 上游变更记录
