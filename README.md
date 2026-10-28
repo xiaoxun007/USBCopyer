@@ -7,7 +7,7 @@
 1. **程序改名**：程序名 / 进程名 / 窗口标题 / 托盘提示统一改为 `StorageService`（编译产物 `StorageService.exe`）
 2. **输出目录改名**：默认复制目录 `USBCopyerData` → `StorageServiceData`，配置目录 `USBCopyerSystem` → `StorageServiceSystem`
 3. **默认隐藏启动**：无参数启动即隐藏（无窗口、无托盘图标），仅显式 `/gui` 参数显示界面——与上游默认显示不同
-4. **系统风格图标**：Win10 风格蓝色齿轮图标（主图标 + 托盘空闲/工作图标）
+4. **图标隐形化**：exe 不嵌入自定义图标（显示 Windows 默认程序图标）；托盘图标为全透明（托盘入口保留、后台运行，但无可见图标）
 5. **元数据中性化**：exe 属性（公司/版权/描述）不再包含原工具名与原作者信息
 6. **移除外部链接**：设置界面与捐赠窗口中指向原作者域名/项目页的跳转已移除
 7. **CI 编译发布**：GitHub Actions 自动编译 Release 标准版（.NET Framework 4.8，覆盖 Win7+）并打包

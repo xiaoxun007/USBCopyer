@@ -7,7 +7,7 @@ on:
   pull_request:
 
 env:
-  VERSION: 5.11-gh1
+  VERSION: 5.11-gh2
 
 jobs:
   build:
@@ -73,5 +73,5 @@ jobs:
           - 原版全部功能保留（U 盘复制 / 黑白名单 / 自定义分类规则 / 回调等）
 
           使用：StorageService.exe /gui 打开设置界面；默认（无参数）隐藏运行。
-          版本 v${{ env.VERSION }}（跟随上游 V5.11，本 fork 定制第 1 版）
+          版本 v${{ env.VERSION }}（跟随上游 V5.11，本 fork 定制第 2 版）
         files: dist/*

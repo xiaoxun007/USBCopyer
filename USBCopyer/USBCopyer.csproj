@@ -54,7 +54,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>USBCopyer.Program</StartupObject>
@@ -188,7 +187,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="icon.ico" />
     <None Include="Resources\Disks.bin" />
     <None Include="Resources\Disks.csv" />
     <None Include="Resources\Disks.tpl" />

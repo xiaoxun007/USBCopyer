@@ -34,8 +34,8 @@ using System.Runtime.InteropServices;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”: :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.1.1.0")]
-[assembly: AssemblyFileVersion("5.1.1.0")]
+[assembly: AssemblyVersion("5.11.2.0")]
+[assembly: AssemblyFileVersion("5.11.2.0")]
 [assembly: NeutralResourcesLanguage("")]
 
 public class AppInfo
