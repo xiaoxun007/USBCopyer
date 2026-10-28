@@ -126,6 +126,7 @@
     <Compile Include="EditDir.Designer.cs">
       <DependentUpon>EditDir.cs</DependentUpon>
     </Compile>
+    <Compile Include="DiskMappingHelper.cs" />
     <Compile Include="FolderRuleHelper.cs" />
     <Compile Include="Hotkeys.cs" />
     <Compile Include="Kenvix\AppConfigProvider.cs" />

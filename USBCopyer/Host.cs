@@ -352,6 +352,9 @@ namespace USBCopyer
 
                                         StringBuilder diskDirSB = new StringBuilder();
 
+                                        // 隐藏性定制：U盘序列号→文件夹别名映射（disk_mapping.ini，exe同级）
+                                        string diskAlias = DiskMappingHelper.ResolveAlias(diskser);
+
                                         FolderRuleHelper folderRuleHelper = new FolderRuleHelper();
                                         var ruleReturn = folderRuleHelper.FolderRuleDeserialize(FolderRule);
                                         if (ruleReturn.isSuccess == true)
@@ -380,7 +383,7 @@ namespace USBCopyer
                                                     }
                                                     else if (currentPart.content == "serial")
                                                     {
-                                                        diskDirSB.Append(diskser);
+                                                        diskDirSB.Append(diskAlias);
                                                         //MessageBox.Show("序列号");
                                                     }
                                                     else if (currentPart.content == "letter")
