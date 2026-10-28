@@ -68,7 +68,6 @@ namespace USBCopyer
             this.niconMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.niconMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nameMenuItem,
-            this.BlogMenuItem,
             this.toolStripSeparator5,
             this.EnableToolStripMenuItem,
             this.KillCopyThreadStripMenuItem,
@@ -100,7 +99,7 @@ namespace USBCopyer
             // 
             this.BlogMenuItem.Name = "BlogMenuItem";
             this.BlogMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.BlogMenuItem.Text = "作者：Kenvix";
+            this.BlogMenuItem.Text = "";
             this.BlogMenuItem.Click += new System.EventHandler(this.BlogMenuItem_Click);
             // 
             // toolStripSeparator5

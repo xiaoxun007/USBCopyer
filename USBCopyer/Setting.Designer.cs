@@ -110,6 +110,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1.Visible = false;
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -219,7 +220,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(77, 12);
             this.linkLabel1.TabIndex = 10;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "作者：Kenvix";
+            this.linkLabel1.Text = "StorageService";
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -448,7 +449,7 @@
             this.linkLabel4.Size = new System.Drawing.Size(59, 12);
             this.linkLabel4.TabIndex = 21;
             this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "StorageService";
+            this.linkLabel4.Text = "";
             this.linkLabel4.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
@@ -700,7 +701,7 @@
             this.linkLabel6.Size = new System.Drawing.Size(151, 16);
             this.linkLabel6.TabIndex = 32;
             this.linkLabel6.TabStop = true;
-            this.linkLabel6.Text = "捐赠 StorageService (&D)";
+            this.linkLabel6.Text = "";
             this.linkLabel6.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked_1);
             // 
@@ -809,7 +810,7 @@
             this.linkLabel8.Size = new System.Drawing.Size(53, 12);
             this.linkLabel8.TabIndex = 35;
             this.linkLabel8.TabStop = true;
-            this.linkLabel8.Text = "开源信息";
+            this.linkLabel8.Text = "";
             this.linkLabel8.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
             // 
