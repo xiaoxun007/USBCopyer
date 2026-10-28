@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 // 隐藏性定制：程序集元数据已中性化，避免暴露工具名称与原作者信息。
-[assembly: AssemblyTitle("")]
-[assembly: AssemblyDescription("Windows Storage Service")]
+[assembly: AssemblyTitle("StorageService")]
+[assembly: AssemblyDescription("StorageService")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("")]
+[assembly: AssemblyProduct("StorageService")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -34,8 +34,8 @@ using System.Runtime.InteropServices;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”: :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.11.2.0")]
-[assembly: AssemblyFileVersion("5.11.2.0")]
+[assembly: AssemblyVersion("5.11.3.0")]
+[assembly: AssemblyFileVersion("5.11.3.0")]
 [assembly: NeutralResourcesLanguage("")]
 
 public class AppInfo
