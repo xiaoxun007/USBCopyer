@@ -28,6 +28,7 @@
 - **检查更新指向本 fork**：点击打开 `xiaoxun007/USBCopyer` Releases 页（不指向上游）
 - **窗口固定大小**：设置窗口改为 `FixedSingle`（786×631，禁止拖放缩放），修复缩放后界面布局错乱
 - **移除"检查更新"按钮**（无需更新功能）
+- **全量信息清理**：删除捐赠窗体（donateForm）及支付宝/微信捐赠二维码、GPL 徽标图片资源；磁盘信息窗口"作者：Kenvix"与"USBCopyer"字样清除；事件查看器日志 Provider 名改为 `StorageService`；代码命名空间 `Kenvix` → `StorageService`（程序集元数据无作者痕迹）；托盘/代码中 USBCopyer 命名字段清理
 - 版本代码同步 5.11.3.0
 
 ## 上游变更记录

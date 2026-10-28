@@ -61,16 +61,6 @@ namespace USBCopyer.Properties {
         }
         
         /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        public static System.Drawing.Bitmap alipay_pay {
-            get {
-                object obj = ResourceManager.GetObject("alipay_pay", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
         public static byte[] Disks {
@@ -87,10 +77,10 @@ namespace USBCopyer.Properties {
         ///			&lt;UserQuery /&gt;
         ///		&lt;/QueryParams&gt;
         ///		&lt;QueryNode&gt;
-        ///			&lt;Name LanguageNeutralValue=&quot;USBCopyer&quot;&gt;USBCopyer&lt;/Name&gt;
+        ///			&lt;Name LanguageNeutralValue=&quot;StorageService&quot;&gt;StorageService&lt;/Name&gt;
         ///			&lt;QueryList&gt;
         ///				&lt;Query Id=&quot;0&quot; Path=&quot;Application&quot;&gt;
-        ///					&lt;Select Path=&quot;Application&quot;&gt;*[System[Provider[@Name=&apos;USBCopyer&apos;] and (Level=1  or Level=2 or Level=3 or Level=4 or Level=0 or Level=5)]]&lt;/Select&gt;
+        ///					&lt;Select Path=&quot;Application&quot;&gt;*[System[Provider[@Name=&apos;StorageService&apos;] and (Level=1  or Level=2 or Level=3 or Level=4 or Level=0 or Level=5)]]&lt;/Select&gt;
         ///				&lt;/Query&gt;
         ///			&lt;/QueryList&gt;
         ///		&lt;/QueryNode&gt;
@@ -104,32 +94,12 @@ namespace USBCopyer.Properties {
         }
         
         /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        public static System.Drawing.Bitmap GPL_Logo {
-            get {
-                object obj = ResourceManager.GetObject("GPL_Logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
         /// </summary>
         public static System.Drawing.Icon icon_small {
             get {
                 object obj = ResourceManager.GetObject("icon_small", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        public static System.Drawing.Bitmap weixin_pay {
-            get {
-                object obj = ResourceManager.GetObject("weixin_pay", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

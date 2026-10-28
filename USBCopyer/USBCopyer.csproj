@@ -133,10 +133,6 @@
     <Compile Include="diskUUID.Designer.cs">
       <DependentUpon>diskUUID.cs</DependentUpon>
     </Compile>
-    <Compile Include="Donate.cs" />
-    <Compile Include="Donate.Designer.cs">
-      <DependentUpon>Donate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Host.cs" />
     <Compile Include="Host.Designer.cs">
       <DependentUpon>Host.cs</DependentUpon>
@@ -150,9 +146,6 @@
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="diskUUID.resx">
       <DependentUpon>diskUUID.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Donate.resx">
-      <DependentUpon>Donate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditDir.resx">
       <DependentUpon>EditDir.cs</DependentUpon>
@@ -190,14 +183,9 @@
     <None Include="Resources\Disks.bin" />
     <None Include="Resources\Disks.csv" />
     <None Include="Resources\Disks.tpl" />
-    <None Include="Resources\weixin-pay.jpg" />
-    <None Include="Resources\alipay-pay.jpg" />
     <None Include="Resources\icon_small.ico" />
     <None Include="Resources\working_small.ico" />
-    <None Include="Resources\GPL-Logo.png" />
-    <None Include="Resources\WorkingIcon.ico" />
     <None Include="Resources\EventViewer.txt" />
-    <None Include="Resources\%24this.Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">

@@ -912,16 +912,6 @@ namespace USBCopyer
             }
         }
 
-        public void openBlog()
-        {
-            // 隐藏性定制：移除跳转作者博客的外部链接
-        }
-
-        private void BlogMenuItem_Click(object sender, EventArgs e)
-        {
-            openBlog();
-        }
-
         private void nameMenuItem_Click(object sender, EventArgs e)
         {
             openPage();
@@ -974,7 +964,7 @@ namespace USBCopyer
             }
         }
 
-        private void restartUSBCopyerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void restartStorageServiceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {

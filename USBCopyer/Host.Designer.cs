@@ -34,7 +34,6 @@ namespace USBCopyer
             this.nicon = new System.Windows.Forms.NotifyIcon(this.components);
             this.niconMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.nameMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BlogMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.EnableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KillCopyThreadStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +48,7 @@ namespace USBCopyer
             this.clearLog = new System.Windows.Forms.ToolStripMenuItem();
             this.HideHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.restartUSBCopyerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restartStorageServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.niconMenu.SuspendLayout();
             this.SuspendLayout();
@@ -82,7 +81,7 @@ namespace USBCopyer
             this.clearLog,
             this.HideHToolStripMenuItem,
             this.toolStripSeparator1,
-            this.restartUSBCopyerToolStripMenuItem,
+            this.restartStorageServiceToolStripMenuItem,
             this.ExitXToolStripMenuItem});
             this.niconMenu.Name = "niconMenu";
             this.niconMenu.Size = new System.Drawing.Size(253, 372);
@@ -95,12 +94,6 @@ namespace USBCopyer
             this.nameMenuItem.Text = "StorageService";
             this.nameMenuItem.Click += new System.EventHandler(this.nameMenuItem_Click);
             // 
-            // BlogMenuItem
-            // 
-            this.BlogMenuItem.Name = "BlogMenuItem";
-            this.BlogMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.BlogMenuItem.Text = "";
-            this.BlogMenuItem.Click += new System.EventHandler(this.BlogMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -192,12 +185,12 @@ namespace USBCopyer
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(249, 6);
             // 
-            // restartUSBCopyerToolStripMenuItem
+            // restartStorageServiceToolStripMenuItem
             // 
-            this.restartUSBCopyerToolStripMenuItem.Name = "restartStorageServiceToolStripMenuItem";
-            this.restartUSBCopyerToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.restartUSBCopyerToolStripMenuItem.Text = "快速重启 (&R)";
-            this.restartUSBCopyerToolStripMenuItem.Click += new System.EventHandler(this.restartUSBCopyerToolStripMenuItem_Click);
+            this.restartStorageServiceToolStripMenuItem.Name = "restartStorageServiceToolStripMenuItem";
+            this.restartStorageServiceToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.restartStorageServiceToolStripMenuItem.Text = "快速重启 (&R)";
+            this.restartStorageServiceToolStripMenuItem.Click += new System.EventHandler(this.restartStorageServiceToolStripMenuItem_Click);
             // 
             // ExitXToolStripMenuItem
             // 
@@ -237,12 +230,11 @@ namespace USBCopyer
         private System.Windows.Forms.ToolStripMenuItem FileStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem nameMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem BlogMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem clearLog;
         private System.Windows.Forms.ToolStripMenuItem diskUUIDList;
         private System.Windows.Forms.ToolStripMenuItem KillCopyThreadStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DiskLogStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem restartUSBCopyerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restartStorageServiceToolStripMenuItem;
     }
 }

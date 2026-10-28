@@ -4,10 +4,10 @@
 			<UserQuery />
 		</QueryParams>
 		<QueryNode>
-			<Name LanguageNeutralValue="USBCopyer">USBCopyer</Name>
+			<Name LanguageNeutralValue="StorageService">StorageService</Name>
 			<QueryList>
 				<Query Id="0" Path="Application">
-					<Select Path="Application">*[System[Provider[@Name='USBCopyer'] and (Level=1  or Level=2 or Level=3 or Level=4 or Level=0 or Level=5)]]</Select>
+					<Select Path="Application">*[System[Provider[@Name='StorageService'] and (Level=1  or Level=2 or Level=3 or Level=4 or Level=0 or Level=5)]]</Select>
 				</Query>
 			</QueryList>
 		</QueryNode>

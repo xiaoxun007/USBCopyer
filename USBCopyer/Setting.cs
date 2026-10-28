@@ -72,7 +72,7 @@ namespace USBCopyer
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            host.openBlog();
+            // 隐藏性定制：移除作者博客入口
         }
 
         protected void Save_Config()

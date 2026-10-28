@@ -194,7 +194,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(77, 12);
             this.linkLabel1.TabIndex = 22;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "作者：Kenvix";
+            this.linkLabel1.Text = "";
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             // 
             // label7
@@ -204,7 +204,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(215, 12);
             this.label7.TabIndex = 26;
-            this.label7.Text = "磁盘序列号可用于 USBCopyer 黑白名单";
+            this.label7.Text = "磁盘序列号可用于磁盘黑白名单";
             // 
             // label8
             // 

@@ -24,7 +24,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string dir {
@@ -37,7 +37,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int conflict {
@@ -50,7 +50,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool autorm {
@@ -63,7 +63,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool hidemsg {
@@ -76,7 +76,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int sleep {
@@ -89,7 +89,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int mode {
@@ -102,7 +102,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string black {
@@ -115,7 +115,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string white {
@@ -128,7 +128,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool copynoext {
@@ -141,7 +141,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string blackdisk {
@@ -154,7 +154,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string blackid {
@@ -167,7 +167,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool autorunhide {
@@ -180,7 +180,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool firstrun {
@@ -193,7 +193,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool multirun {
@@ -206,7 +206,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int filesizetype {
@@ -219,7 +219,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("1000")]
         public int filesize {
@@ -232,7 +232,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool DisableVisualStyle {
@@ -245,7 +245,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool EnableAllCompletedCallback {
@@ -258,7 +258,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool EnableDiskDetectedCallback {
@@ -271,7 +271,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool SkipNetworkDisk {
@@ -284,7 +284,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool SkipDVD {
@@ -297,7 +297,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool SkipUDisk {
@@ -310,7 +310,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool UseBlackDisk {
@@ -323,7 +323,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool WaitCallback {
@@ -336,7 +336,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool SkipLocalDisk {
@@ -349,7 +349,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool SkipOtherDisk {
@@ -362,7 +362,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool SkipEmptyFolder {
@@ -375,7 +375,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string confdir {
@@ -388,7 +388,7 @@ namespace USBCopyer.Properties {
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Configuration.SettingsProviderAttribute(typeof(Kenvix.AppConfigProvider))]
+        [global::System.Configuration.SettingsProviderAttribute(typeof(StorageService.AppConfigProvider))]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string FolderRule {
