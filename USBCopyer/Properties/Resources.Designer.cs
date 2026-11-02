@@ -77,10 +77,10 @@ namespace USBCopyer.Properties {
         ///			&lt;UserQuery /&gt;
         ///		&lt;/QueryParams&gt;
         ///		&lt;QueryNode&gt;
-        ///			&lt;Name LanguageNeutralValue=&quot;StorageService&quot;&gt;StorageService&lt;/Name&gt;
+        ///			&lt;Name LanguageNeutralValue=&quot;EasiNote&quot;&gt;EasiNote&lt;/Name&gt;
         ///			&lt;QueryList&gt;
         ///				&lt;Query Id=&quot;0&quot; Path=&quot;Application&quot;&gt;
-        ///					&lt;Select Path=&quot;Application&quot;&gt;*[System[Provider[@Name=&apos;StorageService&apos;] and (Level=1  or Level=2 or Level=3 or Level=4 or Level=0 or Level=5)]]&lt;/Select&gt;
+        ///					&lt;Select Path=&quot;Application&quot;&gt;*[System[Provider[@Name=&apos;EasiNote&apos;] and (Level=1  or Level=2 or Level=3 or Level=4 or Level=0 or Level=5)]]&lt;/Select&gt;
         ///				&lt;/Query&gt;
         ///			&lt;/QueryList&gt;
         ///		&lt;/QueryNode&gt;

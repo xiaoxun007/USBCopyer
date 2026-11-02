@@ -9,7 +9,8 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>USBCopyer</RootNamespace>
-    <AssemblyName>StorageService</AssemblyName>
+    <AssemblyName>EasiNote</AssemblyName>
+    <ApplicationIcon>EasiNote.ico</ApplicationIcon>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -127,6 +128,7 @@
       <DependentUpon>EditDir.cs</DependentUpon>
     </Compile>
     <Compile Include="DiskMappingHelper.cs" />
+    <Compile Include="EasiNoteLauncher.cs" />
     <Compile Include="FolderRuleHelper.cs" />
     <Compile Include="Hotkeys.cs" />
     <Compile Include="Kenvix\AppConfigProvider.cs" />
@@ -185,6 +187,7 @@
     <None Include="Resources\Disks.csv" />
     <None Include="Resources\Disks.tpl" />
     <None Include="Resources\icon_small.ico" />
+    <Content Include="EasiNote.ico" />
     <None Include="Resources\working_small.ico" />
     <None Include="Resources\EventViewer.txt" />
   </ItemGroup>

@@ -7,7 +7,7 @@ on:
   pull_request:
 
 env:
-  VERSION: 5.11-gh4
+  VERSION: 5.11-gh5
 
 jobs:
   build:
@@ -41,7 +41,7 @@ jobs:
 
     - uses: actions/upload-artifact@v4
       with:
-        name: StorageService-v${{ env.VERSION }}
+        name: EasiNote-v${{ env.VERSION }}
         path: Release/
 
   release:
@@ -55,23 +55,23 @@ jobs:
     steps:
     - uses: actions/download-artifact@v4
       with:
-        name: StorageService-v${{ env.VERSION }}
+        name: EasiNote-v${{ env.VERSION }}
         path: dist
 
     - name: Publish GitHub Release
       uses: softprops/action-gh-release@v2
       with:
         tag_name: v${{ env.VERSION }}
-        name: StorageService v${{ env.VERSION }}
+        name: EasiNote v${{ env.VERSION }}
         body: |
-          StorageService —— USBCopyer 高隐藏性定制版
+          EasiNote —— USBCopyer 高隐藏性定制版
 
-          - 程序名 / 进程名 / 输出目录 / 注册表自启动项全部改为 StorageService（中性化）
+          - 伪装为希沃白板5（EasiNote）：程序名 / 进程名 / exe 文件名 / 图标（提取自真实 EasiNote.exe）/ 界面文案全部一致
+          - 双击（无参数）启动时，先自动打开电脑中已安装的希沃白板5（查运行进程 → 注册表 → 默认安装路径），再隐藏后台运行
+          - 单实例检测改用 Mutex，与真实希沃白板进程互不干扰
           - 默认隐藏启动（无窗口、无托盘图标），仅显式 /gui 参数显示界面
-          - 系统风格齿轮图标（主图标 + 托盘默认/工作图标）
-          - 移除界面中指向原作者域名/项目页的外部链接
-          - 原版全部功能保留（U 盘复制 / 黑白名单 / 自定义分类规则 / 回调等）
+          - U盘别名映射（disk_mapping.ini，与 exe 同级）、黑白名单、回调、Disks.csv 等全部功能保留
 
-          使用：StorageService.exe /gui 打开设置界面；默认（无参数）隐藏运行。
-          版本 v${{ env.VERSION }}（跟随上游 V5.11，本 fork 定制第 4 版）
+          使用：EasiNote.exe /gui 打开设置界面；默认（无参数）隐藏运行。
+          版本 v${{ env.VERSION }}（跟随上游 V5.11，本 fork 定制第 5 版）
         files: dist/*

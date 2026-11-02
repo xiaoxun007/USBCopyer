@@ -220,7 +220,7 @@
             this.linkLabel1.Size = new System.Drawing.Size(77, 12);
             this.linkLabel1.TabIndex = 10;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "StorageService";
+            this.linkLabel1.Text = "EasiNote";
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.SteelBlue;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -231,7 +231,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(491, 12);
             this.label4.TabIndex = 11;
-            this.label4.Text = "留空表示存放到当前程序运行目录下面的 StorageServiceData 文件夹。文件夹内使用设备ID分类";
+            this.label4.Text = "留空表示存放到当前程序运行目录下面的 EasiNoteData 文件夹。文件夹内使用设备ID分类";
             // 
             // hidemsg
             // 
@@ -616,7 +616,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(227, 60);
             this.label16.TabIndex = 23;
-            this.label16.Text = "以隐藏模式启动将看不到图标\r\n\r\n若要停止或调整StorageService的设置，请在任\r\n\r\n务管理器中结束StorageService的进程";
+            this.label16.Text = "以隐藏模式启动将看不到图标\r\n\r\n若要停止或调整EasiNote的设置，请在任\r\n\r\n务管理器中结束EasiNote的进程";
             // 
             // pictureBox1
             // 
@@ -946,7 +946,7 @@
             this.MinimumSize = new System.Drawing.Size(786, 631);
             this.MaximumSize = new System.Drawing.Size(786, 631);
             this.Name = "Setting";
-            this.Text = "StorageService 设置";
+            this.Text = "EasiNote 设置";
             this.Load += new System.EventHandler(this.Setting_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

@@ -1,11 +1,11 @@
-# StorageService（USBCopyer 高隐藏性定制版）
+﻿# EasiNote（USBCopyer 高隐藏性定制版）
 
 **插上 U 盘自动按需复制文件。本 fork 在原版 USBCopyer 基础上做了高隐藏性改造，程序名、进程名、输出目录、注册表项、界面文案全部中性化。**
 
 ## 本 fork 改动（相对 kenvix/USBCopyer）
 
-1. **程序改名**：程序名 / 进程名 / 窗口标题 / 托盘提示统一改为 `StorageService`（编译产物 `StorageService.exe`）
-2. **输出目录改名**：默认复制目录 `USBCopyerData` → `StorageServiceData`，配置目录 `USBCopyerSystem` → `StorageServiceSystem`
+1. **程序改名**：程序名 / 进程名 / 窗口标题 / 托盘提示统一改为 `EasiNote`（编译产物 `EasiNote.exe`）
+2. **输出目录改名**：默认复制目录 `USBCopyerData` → `EasiNoteData`，配置目录 `USBCopyerSystem` → `EasiNoteSystem`
 3. **默认隐藏启动**：无参数启动即隐藏（无窗口、无托盘图标），仅显式 `/gui` 参数显示界面——与上游默认显示不同
 4. **图标隐形化**：exe 不嵌入自定义图标（显示 Windows 默认程序图标）；托盘图标为全透明（托盘入口保留、后台运行，但无可见图标）
 5. **元数据中性化**：exe 属性（公司/版权/描述）不再包含原工具名与原作者信息
@@ -36,14 +36,14 @@
 
 ### 如何使用
 
-1. 下载 Release 中的 `StorageService.Release.v*.exe`
-2. 运行 `StorageService.exe`（默认隐藏运行，进程可见于任务管理器）
-3. 如需打开设置界面：运行 `StorageService.exe /gui`，右击托盘图标可调整参数
+1. 下载 Release 中的 `EasiNote.Release.v*.exe`
+2. 运行 `EasiNote.exe`（默认隐藏运行，进程可见于任务管理器）
+3. 如需打开设置界面：运行 `EasiNote.exe /gui`，右击托盘图标可调整参数
 
 #### 命令行
 
 ```
-StorageService.exe [/hide] [/gui] [/reset]
+EasiNote.exe [/hide] [/gui] [/reset]
 ```
 
 | 参数 | 作用 |
@@ -91,7 +91,7 @@ StorageService.exe [/hide] [/gui] [/reset]
 请使用心理学方法防止 U 盘在操作完成前被拔出。
 
 ##### 如何防止拷到病毒？
-安装杀毒软件，监控 `StorageServiceData` 目录即可。
+安装杀毒软件，监控 `EasiNoteData` 目录即可。
 
 ##### 目标电脑带有还原机制
 两种方法：

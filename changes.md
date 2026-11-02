@@ -1,15 +1,15 @@
-# StorageService（USBCopyer 高隐藏性定制版）变更记录
+﻿# EasiNote（USBCopyer 高隐藏性定制版）变更记录
 
 ## 2026-10-28 fork 定制（v5.11-gh1）
 
 本 fork（xiaoxun007/USBCopyer）在 kenvix/USBCopyer V5.11 基础上的高隐藏性改造：
 
-1. **程序改名**：程序名 / 进程名 / 窗口标题 / 托盘提示统一改为 `StorageService`，编译产物 `StorageService.exe`
-2. **输出目录改名**：默认复制目录 `USBCopyerData` → `StorageServiceData`；配置目录 `USBCopyerSystem` → `StorageServiceSystem`
+1. **程序改名**：程序名 / 进程名 / 窗口标题 / 托盘提示统一改为 `EasiNote`，编译产物 `EasiNote.exe`
+2. **输出目录改名**：默认复制目录 `USBCopyerData` → `EasiNoteData`；配置目录 `USBCopyerSystem` → `EasiNoteSystem`
 3. **默认隐藏启动**：无参数启动即隐藏（无窗口、无托盘图标），仅显式 `/gui` 参数显示界面
 4. **系统风格图标**：Win10 风格蓝色齿轮图标（主图标 icon.ico、托盘空闲 icon_small.ico、托盘工作 working_small.ico、设置界面 WorkingIcon.ico）
 5. **程序集元数据中性化**：AssemblyInfo 的公司/版权/描述不再包含原工具名与原作者信息
-6. **注册表自启动项中性化**：`HKCU\...\Run` 下的值名由 `USBCopyer` 改为 `StorageService`
+6. **注册表自启动项中性化**：`HKCU\...\Run` 下的值名由 `USBCopyer` 改为 `EasiNote`
 7. **移除外部链接**：设置界面与捐赠窗口中指向原作者域名/项目页的跳转已移除
 8. **CI 编译发布**：GitHub Actions 自动编译 Release 标准版（.NET Framework 4.8，覆盖 Win7+），手动触发发布 GitHub Release（资产名带版本号）
 
@@ -23,15 +23,24 @@
 
 ## 2026-10-28 v5.11-gh3
 
-- **程序集友好名称**：AssemblyTitle/Description/Product = `StorageService`（任务管理器"进程"页显示干净名称，无 .exe、无版本号、无空格）
-- **界面去作者化**：设置窗口底部"作者：Kenvix" → `StorageService`；"捐赠 StorageService""开源信息"按钮与捐赠图片入口移除（点击行为清空）；托盘菜单"作者：Kenvix"项移除
+- **程序集友好名称**：AssemblyTitle/Description/Product = `EasiNote`（任务管理器"进程"页显示干净名称，无 .exe、无版本号、无空格）
+- **界面去作者化**：设置窗口底部"作者：Kenvix" → `EasiNote`；"捐赠 EasiNote""开源信息"按钮与捐赠图片入口移除（点击行为清空）；托盘菜单"作者：Kenvix"项移除
 - **检查更新指向本 fork**：点击打开 `xiaoxun007/USBCopyer` Releases 页（不指向上游）
 - **窗口固定大小**：设置窗口改为 `FixedSingle`（786×631，禁止拖放缩放），修复缩放后界面布局错乱
 - **移除"检查更新"按钮**（无需更新功能）
-- **全量信息清理**：删除捐赠窗体（donateForm）及支付宝/微信捐赠二维码、GPL 徽标图片资源；磁盘信息窗口"作者：Kenvix"与"USBCopyer"字样清除；事件查看器日志 Provider 名改为 `StorageService`；代码命名空间 `Kenvix` → `StorageService`（程序集元数据无作者痕迹）；托盘/代码中 USBCopyer 命名字段清理
+- **全量信息清理**：删除捐赠窗体（donateForm）及支付宝/微信捐赠二维码、GPL 徽标图片资源；磁盘信息窗口"作者：Kenvix"与"USBCopyer"字样清除；事件查看器日志 Provider 名改为 `EasiNote`；代码命名空间 `Kenvix` → `EasiNote`（程序集元数据无作者痕迹）；托盘/代码中 USBCopyer 命名字段清理
 - 版本代码同步 5.11.3.0
 
 - 版本代码同步 5.11.3.0
+
+## 2026-11-03 v5.11-gh5
+
+- **伪装为希沃白板5（EasiNote）**：程序名 / 进程名 / exe 文件名 / 图标 / 界面文案 / 注册表自启动值名统一改为 EasiNote，图标从真实 EasiNote.exe 提取（16-256px 全套嵌入）
+- **双击先打开真实希沃白板5**：无参数双击启动时自动定位并启动电脑中已安装的希沃白板5（先查运行中的希沃进程 → 注册表卸载信息 → 常见默认安装路径），随后本程序继续隐藏后台运行；定位失败静默跳过
+- **单实例检测改为 Mutex**：进程名与真实希沃同名后，改用 Mutex 判定，避免误判冲突
+- **数据目录改名**：`EasiNoteData\`（原 StorageServiceData）、`EasiNoteSystem\`（原 StorageServiceSystem）
+- 产物名 `EasiNote.v5.11-gh5.exe`；U盘别名映射 / 黑白名单 / 回调 / Disks.csv 等全部功能保留
+- 版本代码同步 5.11.5.0
 
 ## 2026-10-28 v5.11-gh4
 

@@ -6,7 +6,7 @@ using System.Xml;
 using System.Windows.Forms;
 using System.IO;
 
-namespace StorageService
+namespace EasiNote
 {
     public class AppConfigProvider : SettingsProvider
     {

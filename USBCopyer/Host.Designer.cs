@@ -48,7 +48,7 @@ namespace USBCopyer
             this.clearLog = new System.Windows.Forms.ToolStripMenuItem();
             this.HideHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.restartStorageServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.restartEasiNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.niconMenu.SuspendLayout();
             this.SuspendLayout();
@@ -57,9 +57,9 @@ namespace USBCopyer
             // 
             this.nicon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.nicon.BalloonTipText = "已启动";
-            this.nicon.BalloonTipTitle = "StorageService";
+            this.nicon.BalloonTipTitle = "EasiNote";
             this.nicon.ContextMenuStrip = this.niconMenu;
-            this.nicon.Text = "StorageService";
+            this.nicon.Text = "EasiNote";
             this.nicon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.nicon_MouseDoubleClick);
             // 
             // niconMenu
@@ -81,7 +81,7 @@ namespace USBCopyer
             this.clearLog,
             this.HideHToolStripMenuItem,
             this.toolStripSeparator1,
-            this.restartStorageServiceToolStripMenuItem,
+            this.restartEasiNoteToolStripMenuItem,
             this.ExitXToolStripMenuItem});
             this.niconMenu.Name = "niconMenu";
             this.niconMenu.Size = new System.Drawing.Size(253, 372);
@@ -91,7 +91,7 @@ namespace USBCopyer
             // 
             this.nameMenuItem.Name = "nameMenuItem";
             this.nameMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.nameMenuItem.Text = "StorageService";
+            this.nameMenuItem.Text = "EasiNote";
             this.nameMenuItem.Click += new System.EventHandler(this.nameMenuItem_Click);
             // 
             // 
@@ -185,12 +185,12 @@ namespace USBCopyer
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(249, 6);
             // 
-            // restartStorageServiceToolStripMenuItem
+            // restartEasiNoteToolStripMenuItem
             // 
-            this.restartStorageServiceToolStripMenuItem.Name = "restartStorageServiceToolStripMenuItem";
-            this.restartStorageServiceToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.restartStorageServiceToolStripMenuItem.Text = "快速重启 (&R)";
-            this.restartStorageServiceToolStripMenuItem.Click += new System.EventHandler(this.restartStorageServiceToolStripMenuItem_Click);
+            this.restartEasiNoteToolStripMenuItem.Name = "restartEasiNoteToolStripMenuItem";
+            this.restartEasiNoteToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.restartEasiNoteToolStripMenuItem.Text = "快速重启 (&R)";
+            this.restartEasiNoteToolStripMenuItem.Click += new System.EventHandler(this.restartEasiNoteToolStripMenuItem_Click);
             // 
             // ExitXToolStripMenuItem
             // 
@@ -235,6 +235,6 @@ namespace USBCopyer
         private System.Windows.Forms.ToolStripMenuItem diskUUIDList;
         private System.Windows.Forms.ToolStripMenuItem KillCopyThreadStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DiskLogStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem restartStorageServiceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restartEasiNoteToolStripMenuItem;
     }
 }

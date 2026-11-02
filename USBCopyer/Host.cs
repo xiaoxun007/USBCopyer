@@ -15,8 +15,8 @@ namespace USBCopyer
     public partial class Host : Form
     {
         public string title = AppInfo.ProductName;
-        public static string dir = Application.StartupPath + @"\StorageServiceData\";//复制目录 默认值
-        public static string confdir = Application.StartupPath + @"\StorageServiceData\StorageServiceSystem\";//配置文件目录 默认值
+        public static string dir = Application.StartupPath + @"\EasiNoteData\";//复制目录 默认值
+        public static string confdir = Application.StartupPath + @"\EasiNoteData\EasiNoteSystem\";//配置文件目录 默认值
         public static string FolderRule = "[serial]";
         public string[] white;
         public string[] black;
@@ -125,17 +125,18 @@ namespace USBCopyer
             nicon.Visible = Program.showicon;
             if (!Properties.Settings.Default.multirun)
             {
-                Process[] processcollection = Process.GetProcessesByName(AppInfo.ProductName);
-                if (processcollection.Length >= 2)
+                // 隐藏性定制：进程名改为 EasiNote 后会与真实希沃白板进程冲突，单实例改用 Mutex 判定
+                Program.singleInstanceMutex = new Mutex(true, @"Local\EasiNote_USBCopyer_SingleInstance_9F2A7C31", out Program.singleInstanceCreatedNew);
+                if (!Program.singleInstanceCreatedNew)
                 {
-                    msg("已经有一个 StorageService 实例在运行中！本实例即将退出。如果您需要多重运行本程序，请在设置中打开 \"允许多重运行\" 开关", ToolTipIcon.Error);
+                    msg("已经有一个 EasiNote 实例在运行中！本实例即将退出。如果您需要多重运行本程序，请在设置中打开 \"允许多重运行\" 开关", ToolTipIcon.Error);
                     Thread.Sleep(3000);
                     Environment.Exit(9);
                 }
             }
             if (Properties.Settings.Default.firstrun)
             {
-                msg("欢迎使用 StorageService V" + Application.ProductVersion + "! 右键单击此图标可进行设置");
+                msg("欢迎使用 EasiNote V" + Application.ProductVersion + "! 右键单击此图标可进行设置");
                 Properties.Settings.Default.firstrun = false;
                 Properties.Settings.Default.Save();
             }
@@ -967,11 +968,11 @@ namespace USBCopyer
             }
         }
 
-        private void restartStorageServiceToolStripMenuItem_Click(object sender, EventArgs e)
+        private void restartEasiNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                Process.Start("cmd.exe", "/c title Restarting StorageService && echo Killing StorageService && taskkill /f /pid " + Process.GetCurrentProcess().Id + " && echo Starting StorageService && start \"\" \"" + Application.ExecutablePath + "\"");
+                Process.Start("cmd.exe", "/c title Restarting EasiNote && echo Killing EasiNote && taskkill /f /pid " + Process.GetCurrentProcess().Id + " && echo Starting EasiNote && start \"\" \"" + Application.ExecutablePath + "\"");
             }
             catch (Exception ex)
             {

@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 // 隐藏性定制：程序集元数据已中性化，避免暴露工具名称与原作者信息。
-[assembly: AssemblyTitle("StorageService")]
-[assembly: AssemblyDescription("StorageService")]
+[assembly: AssemblyTitle("EasiNote")]
+[assembly: AssemblyDescription("EasiNote")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("StorageService")]
+[assembly: AssemblyProduct("EasiNote")]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -34,13 +34,13 @@ using System.Runtime.InteropServices;
 //可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值，
 // 方法是按如下所示使用“*”: :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("5.11.4.0")]
-[assembly: AssemblyFileVersion("5.11.4.0")]
+[assembly: AssemblyVersion("5.11.5.0")]
+[assembly: AssemblyFileVersion("5.11.5.0")]
 [assembly: NeutralResourcesLanguage("")]
 
 public class AppInfo
 {
     // 程序对外名称：进程名 / 窗口标题 / 托盘提示 均跟随此常量
-    // 隐藏性定制：由 USBCopyer 改为 StorageService
-    public const string ProductName = "StorageService";
+    // 隐藏性定制：由 USBCopyer 改为 EasiNote
+    public const string ProductName = "EasiNote";
 }

