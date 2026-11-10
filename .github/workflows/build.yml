@@ -7,7 +7,7 @@ on:
   pull_request:
 
 env:
-  VERSION: 5.11-gh6
+  VERSION: 5.11-gh7
 
 jobs:
   build:

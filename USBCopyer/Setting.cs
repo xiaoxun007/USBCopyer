@@ -87,13 +87,23 @@ namespace USBCopyer
                 {
                     filesize.Text = "0";
                 }
-                else
+                long sleepValue;
+                long fileSizeValue;
+                if (!long.TryParse(sleep.Text, out sleepValue) || sleepValue < 0)
                 {
-                    if (!IsInteger(sleep.Text))
-                    {
-                        MessageBox.Show("延迟复制时间只能为正整数", "保存设置失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    MessageBox.Show("延迟复制时间只能为正整数（秒）", "保存设置失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // 修复：单位是 MB，原代码用 int 乘法，超过 2047MB 会溢出成负数导致所有文件被判定超限
+                if (!long.TryParse(filesize.Text, out fileSizeValue) || fileSizeValue < 0)
+                {
+                    MessageBox.Show("文件大小限制只能为 0 或正整数（单位 MB）", "保存设置失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (fileSizeValue > int.MaxValue)
+                {
+                    MessageBox.Show("文件大小限制过大，请输入不超过 " + int.MaxValue + " 的数值（单位 MB）", "保存设置失败", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 Properties.Settings.Default.dir = dir.Text;//与host.cs的逻辑配合。设置复制目录使Properties.Settings.Default.dir不为空
                 Properties.Settings.Default.confdir = confdir;

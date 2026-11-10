@@ -496,7 +496,7 @@ namespace USBCopyer
                                                 if (Properties.Settings.Default.sleep > 0)
                                                 {
                                                     Program.log("延迟复制：将在 " + Properties.Settings.Default.sleep + "秒后进行复制");
-                                                    Thread.Sleep(Properties.Settings.Default.sleep * 1000);
+                                                    Thread.Sleep((int)Math.Min((long)Properties.Settings.Default.sleep * 1000L, int.MaxValue));
                                                     if (!Directory.Exists(disk + "\\"))
                                                     {
                                                         if (string.IsNullOrEmpty(diskser))
@@ -720,7 +720,9 @@ namespace USBCopyer
                 {
                     Directory.CreateDirectory(destinationPath);
                 }
-                int fileSizeLimit = Properties.Settings.Default.filesize * 1048576;
+                // 修复：filesize 单位是 MB，3072MB 即 3221225472 字节，超出 int 上限后回绕为负数，
+                // 会使"文件长度 < 限制"恒为假、所有文件被判定超限而跳过（表现为只建目录不复制文件）
+                long fileSizeLimit = (long)Properties.Settings.Default.filesize * 1048576L;
                 string CopyLog = "复制操作：输出目录：" + destinationPath + "\r\n";
                 foreach (FileSystemInfo fsi in info.GetFileSystemInfos())
                 {
