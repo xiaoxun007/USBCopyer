@@ -66,12 +66,13 @@ jobs:
         body: |
           EasiNote —— USBCopyer 高隐藏性定制版
 
-          - 伪装为希沃白板5（EasiNote）：程序名 / 进程名 / exe 文件名 / 图标（提取自真实 EasiNote.exe）/ 界面文案全部一致
-          - 双击（无参数）启动时，先自动打开电脑中已安装的希沃白板5（查运行进程 → 注册表 → 默认安装路径），再隐藏后台运行
+          - 伪装为希沃白板5（EasiNote）：程序名 / 进程名 / exe 文件名 / 界面文案一致；exe 使用 Windows 默认图标，托盘图标为全透明
+          - 默认隐藏启动：无窗口、无托盘图标，仅显式 `-gui` 参数才显示界面
+          - `-launch` 参数（兼容 `/launch`）：执行与 exe 同目录的 `launcher.lnk`，其指向目标由该 lnk 自身决定；无参数双击不执行 lnk，仅隐藏运行
           - 单实例检测改用 Mutex，与真实希沃白板进程互不干扰
-          - 默认隐藏启动（无窗口、无托盘图标），仅显式 /gui 参数显示界面
           - U盘别名映射（disk_mapping.ini，与 exe 同级）、黑白名单、回调、Disks.csv 等全部功能保留
+          - 已修复文件大小限制整数溢出：filesize ≥ 2048MB 时原先所有文件被误判超限而跳过
 
-          使用：EasiNote.exe /gui 打开设置界面；默认（无参数）隐藏运行。
-          版本 v${{ env.VERSION }}（跟随上游 V5.11，本 fork 定制第 5 版）
+          使用：`EasiNote.exe -setting` 打开设置界面；`-gui` 显示界面；`-launch` 执行同目录 launcher.lnk；默认（无参数）隐藏运行。
+          版本 v${{ env.VERSION }}（跟随上游 V5.11，`-gh` 后缀为定制批次序号）
         files: dist/*
