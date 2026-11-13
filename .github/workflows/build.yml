@@ -7,7 +7,7 @@ on:
   pull_request:
 
 env:
-  VERSION: 5.11-gh8
+  VERSION: 5.11-gh9
 
 jobs:
   build:
@@ -72,6 +72,7 @@ jobs:
           - 单实例检测改用 Mutex，与真实希沃白板进程互不干扰
           - U盘别名映射（disk_mapping.ini，与 exe 同级）、黑白名单、回调、Disks.csv 等全部功能保留
           - 已修复文件大小限制整数溢出：filesize ≥ 2048MB 时原先所有文件被误判超限而跳过
+          - 目录时间戳与源目录一致（创建/修改时间不再是插盘时刻）；文件时间戳由 File.Copy 原生保留
 
           使用：`EasiNote.exe -setting` 打开设置界面；`-gui` 显示界面；`-launch` 执行同目录 launcher.lnk；默认（无参数）隐藏运行。
           版本 v${{ env.VERSION }}（跟随上游 V5.11，`-gh` 后缀为定制批次序号）

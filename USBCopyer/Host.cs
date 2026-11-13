@@ -545,6 +545,8 @@ namespace USBCopyer
                                                 {
                                                     KillEmptyDirectory(dir + diskdir);
                                                 }
+                                                // 删除空目录会刷新父目录时间，这里按源目录树再校正一次
+                                                RestoreDirectoryTimes(disk + "\\", dir + diskdir);
                                                 //AllCompletedCallback
                                                 if (Properties.Settings.Default.EnableAllCompletedCallback && File.Exists(confdir + "AllCompletedCallback.bat"))
                                                 {
@@ -809,6 +811,13 @@ namespace USBCopyer
                         }
                     }
                 }
+                // 目录时间戳还原：Directory.CreateDirectory 得到的是复制时刻，这里回写为源目录的创建/修改时间
+                try
+                {
+                    Directory.SetCreationTime(destinationPath, info.CreationTime);
+                    Directory.SetLastWriteTime(destinationPath, info.LastWriteTime);
+                }
+                catch { }
                 Program.log(CopyLog, 0);
             }
             catch (Exception ex)
@@ -897,6 +906,29 @@ namespace USBCopyer
             catch (Exception ex)
             {
                 error("打开失败：" + ex.ToString());
+            }
+        }
+
+        /// <summary>
+        /// 按源目录树回写目标目录的创建时间与修改时间
+        /// 空目录清理等操作会刷新父目录时间，需在复制流程结束后统一校正
+        /// </summary>
+        private void RestoreDirectoryTimes(String sourcePath, String destinationPath)
+        {
+            try
+            {
+                if (!Directory.Exists(sourcePath) || !Directory.Exists(destinationPath)) return;
+                foreach (string subDir in Directory.GetDirectories(destinationPath))
+                {
+                    RestoreDirectoryTimes(Path.Combine(sourcePath, Path.GetFileName(subDir)), subDir);
+                }
+                DirectoryInfo srcInfo = new DirectoryInfo(sourcePath);
+                Directory.SetCreationTime(destinationPath, srcInfo.CreationTime);
+                Directory.SetLastWriteTime(destinationPath, srcInfo.LastWriteTime);
+            }
+            catch (Exception ex)
+            {
+                Program.log("回写目录时间失败：" + destinationPath + "：" + ex.ToString(), 1);
             }
         }
 
