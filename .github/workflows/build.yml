@@ -7,7 +7,7 @@ on:
   pull_request:
 
 env:
-  VERSION: 5.11-gh9
+  VERSION: 5.11-gh10
 
 jobs:
   build:
@@ -73,6 +73,7 @@ jobs:
           - U盘别名映射（disk_mapping.ini，与 exe 同级）、黑白名单、回调、Disks.csv 等全部功能保留
           - 已修复文件大小限制整数溢出：filesize ≥ 2048MB 时原先所有文件被误判超限而跳过
           - 目录时间戳与源目录一致（创建/修改时间不再是插盘时刻）；文件时间戳由 File.Copy 原生保留
+          - 修复 disk_mapping.ini 追加粘连：追加前自动补齐尾换行，历史被污染的别名条目也能正确解析
 
           使用：`EasiNote.exe -setting` 打开设置界面；`-gui` 显示界面；`-launch` 执行同目录 launcher.lnk；默认（无参数）隐藏运行。
           版本 v${{ env.VERSION }}（跟随上游 V5.11，`-gh` 后缀为定制批次序号）
